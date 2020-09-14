@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tính thuế</title>
+</head>
+<body>
+<label><input type="text" id="thunhap"/>VNĐ</label>
+<label for="bac"></label><select id="bac">
+    <option value="bậc 1">bậc 1</option>
+    <option value="bậc 2">bậc 2</option>
+</select>
+<input type="button" onclick="tinhthue()" value="tính thuế">
+
+<script>
+
+    function tinhthue() {
+        let n = parseFloat(document.getElementById("thunhap").value);
+
+        if (n < 10000000) {
+            if (document.getElementById("bac").value === "bậc 1"){
+                let thuebac1 = [6*n + (n*0.9*3) + (n*0.8*3)]/12;
+                alert("Thu nhập 1 tháng khi chịu thuế bậc 1 = " + thuebac1);
+            } if (document.getElementById("bac").value === "bậc 2"){
+                let thuebac2 = [3*n + (n*0.9*3) + (n*0.8*6)]/12;
+                alert("Thu nhập 1 tháng khi chịu thuế bậc 2 = " + thuebac2);
+            } else {
+                alert("K chịu thuế")
+            }
+
+        } else if (n < 50000000) {
+            let thue10 = n*0.9;
+            if (document.getElementById("bac").value === "bậc 1"){
+                let thuebac1 = [6*n + (n*0.9*3) + (n*0.8*3)]/12;
+                alert("Thu nhập 1 tháng khi chịu thuế bậc 1 = " + thuebac1);
+            } else if (document.getElementById("bac").value === "bậc 2"){
+                let thuebac2 = [3*n + (n*0.9*3) + (n*0.8*6)]/12;
+                alert("Thu nhập 1 tháng khi chịu thuế bậc 2 = " + thuebac2);
+            } else {
+                alert("thu nhập 1 tháng = " + thue10) }
+        } else {
+            let thue50 = [(12*n*0.8) - (12*n*0.8*0.1)] / 12;
+
+            if (document.getElementById("bac").value === "bậc 1"){
+                let thuebac1 = [6*n + (n*0.9*3) + (n*0.8*3)]/12;
+                alert("Thu nhập 1 tháng khi chịu thuế bậc 1 = " + thuebac1);
+            } else if (document.getElementById("bac").value === "bậc 2"){
+                let thuebac2 = [3*n + (n*0.9*3) + (n*0.8*6)]/12;
+                alert("Thu nhập 1 tháng khi chịu thuế bậc 2 = " + thuebac2);
+            } else { alert("thu nhập 1 tháng = " + thue50); }
+        }
+
+    }
+
+</script>
+</body>
+</html>
